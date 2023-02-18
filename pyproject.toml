@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "pokemon-showdown-replays"
+version = "0.1.0"
+description = "A package for generating pokemon showdown replays from pokemon showdown logs"
+authors = ["eyalmen <dave.eyal@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "pokemon_showdown_replays"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
