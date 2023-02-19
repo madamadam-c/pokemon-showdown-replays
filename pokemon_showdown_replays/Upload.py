@@ -117,7 +117,7 @@ def upload_replay_end():
 </body></html>
 """
 
-def create_upload_replay(replay: dict): # the type of replay at https://replay.pokemonshowdown.com/
+def create_replay(replay: dict): # the type of replay at https://replay.pokemonshowdown.com/
     start = upload_replay_start(replay)
     log = replay['log']
     end = upload_replay_end()

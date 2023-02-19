@@ -1,4 +1,4 @@
-def create_download_replay(replay: dict): # the replay you would get when downloading a replay from Pokemon Showdown
+def create_replay(replay: dict): # the replay you would get when downloading a replay from Pokemon Showdown
     html = f"""<!DOCTYPE html>
 <meta charset="utf-8" />
 <!-- version 1 -->
