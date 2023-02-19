@@ -1,3 +1,4 @@
 .env/
 dist/
 poetry.lock
+pokemon_showdown_replays/__pycache__/
