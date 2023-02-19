@@ -1,4 +1,4 @@
-def create_replay(replay: dict): # the replay you would get when downloading a replay from Pokemon Showdown
+def create_replay(replay: dict, replay_embed_location = "https://play.pokemonshowdown.com/js/replay-embed.js"): # the replay you would get when downloading a replay from Pokemon Showdown
     html = f"""<!DOCTYPE html>
 <meta charset="utf-8" />
 <!-- version 1 -->
@@ -13,7 +13,7 @@ html,body {{font-family:Verdana, sans-serif;font-size:10pt;margin:0;padding:0;}}
 </script>
 </div>
 <script>
-let daily = Math.floor(Date.now()/1000/60/60/24);document.write('<script src="https://play.pokemonshowdown.com/js/replay-embed.js?version'+daily+'"></'+'script>');
+let daily = Math.floor(Date.now()/1000/60/60/24);document.write('<script src="{replay_embed_location}?version'+daily+'"></'+'script>');
 </script>"""
     
     return html

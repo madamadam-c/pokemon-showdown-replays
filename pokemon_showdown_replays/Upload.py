@@ -1,7 +1,7 @@
 from datetime import datetime
 
 
-def upload_replay_start(replay: dict):
+def upload_replay_start(replay: dict, client_location: str = "https://play.pokemonshowdown.com"):
     html = f"""<!DOCTYPE html>
 <html><head>
 
@@ -12,12 +12,12 @@ def upload_replay_start(replay: dict):
 	<meta name="description" content="Watch a replay of a Pokémon battle between {replay['p1']} and {replay['p2']} ({replay['format']})" />
 
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=IE8" />
-	<link rel="stylesheet" href="https://play.pokemonshowdown.com/style/font-awesome.css?932f42c7" />
+	<link rel="stylesheet" href="https://{client_location}/style/font-awesome.css?932f42c7" />
 	<link rel="stylesheet" href="https://pokemonshowdown.com/theme/panels.css?0.8626627733285226" />
 	<link rel="stylesheet" href="https://pokemonshowdown.com/theme/main.css?0.9739025453096699" />
-	<link rel="stylesheet" href="https://play.pokemonshowdown.com/style/battle.css?8e37a9fd" />
-	<link rel="stylesheet" href="https://play.pokemonshowdown.com/style/replay.css?cfa51183" />
-	<link rel="stylesheet" href="https://play.pokemonshowdown.com/style/utilichart.css?e39c48cf" />
+	<link rel="stylesheet" href="https://{client_location}/style/battle.css?8e37a9fd" />
+	<link rel="stylesheet" href="https://{client_location}/style/replay.css?cfa51183" />
+	<link rel="stylesheet" href="https://{client_location}/style/utilichart.css?e39c48cf" />
 	<!-- Workarounds for IE bugs to display trees correctly. -->
 	<!--[if lte IE 6]><style> li.tree {{ height: 1px; }} </style><![endif]-->
 	<!--[if IE 7]><style> li.tree {{ zoom: 1; }} </style><![endif]-->
@@ -84,42 +84,42 @@ def upload_replay_start(replay: dict):
     
     return html
 
-def upload_replay_end():
-    return """</script>
+def upload_replay_end(client_location: str = "https://play.pokemonshowdown.com"):
+    return f"""</script>
 
 
 
 		<a href="/index.php" class="pfx-backbutton" data-target="back"><i class="fa fa-chevron-left"></i> Other replays</a>
 
 	</div></div>
-	<script src="https://play.pokemonshowdown.com/js/lib/jquery-1.11.0.min.js?8fc25e27"></script>
-	<script src="https://play.pokemonshowdown.com/js/lib/lodash.core.js?e9be4c2d"></script>
-	<script src="https://play.pokemonshowdown.com/js/lib/backbone.js?8a8d8296"></script>
-	<script src="https://dex.pokemonshowdown.com/js/panels.js?0.7863498086865959"></script>
+	<script src="{client_location}/js/lib/jquery-1.11.0.min.js"></script>
+	<script src="{client_location}/js/lib/lodash.core.js"></script>
+	<script src="{client_location}/js/lib/backbone.js"></script>
+	<script src="https://dex.pokemonshowdown.com/js/panels.js"></script>
 
-	<script src="https://play.pokemonshowdown.com/js/lib/jquery-cookie.js?38477214"></script>
-	<script src="https://play.pokemonshowdown.com/js/lib/html-sanitizer-minified.js?949c4200"></script>
-	<script src="https://play.pseudo.gq/js/battle-sound.js?8e5efe0f"></script>
-	<script src="https://play.pseudo.gq/config/config.js?f08e9e6a"></script>
-	<script src="https://play.pseudo.gq/js/battledata.js?d018770b"></script>
-	<script src="https://play.pokemonshowdown.com/data/pokedex-mini.js?73389fb3"></script>
-	<script src="https://play.pokemonshowdown.com/data/pokedex-mini-bw.js?59d44f9f"></script>
-	<script src="https://play.pseudo.gq/data/graphics.js?e46d22dd"></script>
-	<script src="https://play.pokemonshowdown.com/data/pokedex.js?eea8e9ec"></script>
-	<script src="https://play.pokemonshowdown.com/data/items.js?1f7a39fb"></script>
-	<script src="https://play.pokemonshowdown.com/data/moves.js?a0b53a8e"></script>
-	<script src="https://play.pokemonshowdown.com/data/abilities.js?96703c4e"></script>
-	<script src="https://play.pokemonshowdown.com/data/teambuilder-tables.js?160c1b1a"></script>
-	<script src="https://play.pokemonshowdown.com/js/battle-tooltips.js?c309b930"></script>
-	<script src="https://play.pokemonshowdown.com/js/battle.js?d4ed5cb9"></script>
-	<script src="https://play.pseudo.gq/replays/js/replay.js?1e09ceb9"></script>
+	<script src="{client_location}/js/lib/jquery-cookie.js"></script>
+	<script src="{client_location}/js/lib/html-sanitizer-minified.js"></script>
+	<script src="{client_location}/js/battle-sound.js"></script>
+	<script src="{client_location}/config/config.js"></script>
+	<script src="{client_location}/js/battledata.js"></script>
+	<script src="{client_location}/data/pokedex-mini.js"></script>
+	<script src="{client_location}/data/pokedex-mini-bw.js"></script>
+	<script src="{client_location}/data/graphics.js"></script>
+	<script src="{client_location}/data/pokedex.js"></script>
+	<script src="{client_location}/data/items.js"></script>
+	<script src="{client_location}/data/moves.js"></script>
+	<script src="{client_location}/data/abilities.js"></script>
+	<script src="{client_location}/data/teambuilder-tables.js"></script>
+	<script src="{client_location}/js/battle-tooltips.js"></script>
+	<script src="{client_location}/js/battle.js"></script>
+	<script src="{client_location}/replays/js/replay.js"></script>
 
 </body></html>
 """
 
-def create_replay(replay: dict): # the type of replay at https://replay.pokemonshowdown.com/
-    start = upload_replay_start(replay)
+def create_replay(replay: dict, client_location = "https://play.pokemonshowdown.com"): # the type of replay at https://replay.pokemonshowdown.com/
+    start = upload_replay_start(replay, client_location = client_location)
     log = replay['log']
-    end = upload_replay_end()
+    end = upload_replay_end(client_location = client_location)
 
     return start + log + end
