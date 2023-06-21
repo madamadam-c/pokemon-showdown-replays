@@ -2,7 +2,7 @@
 name = "pokemon_showdown_replays"
 version = "0.1.0"
 description = "A package for generating pokemon showdown replays from pokemon showdown logs"
-authors = ["eyalmen <dave.eyal@gmail.com>"]
+authors = ["madamadam-c <madam1panther@gmail.com@gmail.com>"]
 license = "MIT"
 readme = "README.md"
 packages = [{include = "pokemon_showdown_replays"}]
